@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.tutorijal1;
 
-import com.sun.deploy.util.ArrayUtil;
 
 public class Predmet {
 

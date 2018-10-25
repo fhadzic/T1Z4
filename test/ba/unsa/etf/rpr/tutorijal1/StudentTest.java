@@ -1,26 +1,27 @@
 package ba.unsa.etf.rpr.tutorijal1;
 
-import com.sun.org.apache.xpath.internal.operations.Equals;
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-@RunWith(Arquillian.class)
-public class StudentTest {
-    @Deployment
-    public static JavaArchive createDeployment() {
-        return ShrinkWrap.create(JavaArchive.class)
-                .addClass(Student.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+class StudentTest {
+
+    Student s = new Student("Ferid", "Hadžić", 17685);
+
+    @Test
+    void getIme() {
+        assertEquals("Ferid", s.getIme());
     }
 
-    @org.junit.Test
-    public void toString() {
-        assert Equals(1+1, 2);
+    @Test
+    void getPrezime() {
+        assertEquals("Hadžić", s.getPrezime());
     }
+
+
+    @Test
+    void getIndex() {
+        assertEquals(17685, s.getIndex());
+    }
+
 }
