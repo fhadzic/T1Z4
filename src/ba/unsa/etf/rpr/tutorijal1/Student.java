@@ -32,9 +32,6 @@ public class Student {
         this.index = index;
     }
 
-    public void ispisi(){
-        System.out.println(prezime + " " + ime + " (" + index + ")");
-    }
 
     @Override
     public String toString() {

@@ -40,19 +40,25 @@ public class Predmet {
     }
 
     public void upisi(Student s) {
-        studenti[brojStudenata] = s;
-        brojStudenata++;
+        if(brojStudenata == studenti.length-1){
+            System.out.println("Kapacitet popunjen!");
+        } else {
+            studenti[brojStudenata] = s;
+            brojStudenata++;
+        }
     }
 
     public void ispisi(Student s) {
         if(brojStudenata == 0) {
-            System.out.println("Nema studenata!");
+            System.out.println("Nema ni jednog studenata!");
         } else {
             for (int i = 0; i < brojStudenata; i++) {
-                if (s == studenti[i]) {
-                    for (int j = i; j < studenti.length - 1; i++) {
-                        studenti[j] = studenti[j + 1];
+                if (studenti[i] == s) {
+                    for (int j = i+1; j < brojStudenata ; j++) {
+                        studenti[j-1] = studenti[j];
+
                     }
+                    brojStudenata--;
                     break;
                 } else if (i == brojStudenata-1) {
                     System.out.println("Nema trazenog studenata!");
@@ -62,6 +68,9 @@ public class Predmet {
     }
 
     public void ispisSpiska() {
+        if(brojStudenata == 0) {
+            System.out.println("Nema ni jednog studenata!");
+        }
         for (int i = 0; i < brojStudenata; i++) {
             System.out.println((i + 1) + ". " + studenti[i]);
         }
